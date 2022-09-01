@@ -21,7 +21,7 @@ We have, in a sense, two sets of explanatory variables that may explain our targ
 
 Our data was split into 80% training data and 20% testing data. To do so, we manually split at the 80% index point, so as to preserve the order of the data. Our metric of choice here was root mean squared error (rmse), which is a standard for regression tasks.
 
-We manually determined the parameters the first SARIMAX with acf and pacf plots. This model took a very long time to fit, on the order of 30 minutes. Attempts to automatically obtain optimal parameters with auto_arima resulted in consistent memory crashes. We suspect the high seasonality was causing all the slow training and memory errors. We addressed this by downsampling the temperature measurement frequency to one hour, which drastically speeded up model fitting time, and even improved accuracy. The SARIMAX models were outdone by the 
+We manually determined the parameters the first SARIMAX with acf and pacf plots. This model took a very long time to fit, on the order of 30 minutes. Attempts to automatically obtain optimal parameters with auto_arima resulted in consistent memory crashes. We suspect the high seasonality was causing all the slow training and memory errors. We addressed this by downsampling the temperature measurement frequency to one hour, which drastically speeded up model fitting time, and even improved accuracy.
 
 In the end the SARIMAX models were outdone by the random forest regressor and linear regression models. The linear regression model scored best, with an out of sample rmse of 0.072 C.
 
